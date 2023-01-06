@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Agregar Alumno</h1>
+<div mat-dialog-content>
+  <form class="flex flex-column" [formGroup]="dataForm">
+    <mat-form-field class="mb-2" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input [formControl]="nombreControl" matInput placeholder="Nombre">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input [formControl]="apellidoControl" matInput placeholder="Apellido">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Carrera</mat-label>
+      <input [formControl]="carreraControl" matInput placeholder="Carrera">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="close()">Cancelar</button>
+  <button mat-button color="primary" [mat-dialog-close]="dataForm.value" cdkFocusInitial>Guardar</button>
+</div>

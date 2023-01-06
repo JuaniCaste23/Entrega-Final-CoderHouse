@@ -1,0 +1,27 @@
+table {
+  background-color: rgb(227, 250, 200);
+  border: 6px double rgb(54, 20, 20);
+  padding: 180px;
+
+  td{
+    font-size: 20px;
+  }
+  tr{
+    font-size: 20px;
+  }
+}
+
+#agregarAlumno {
+  position: fixed;
+  bottom: 89%;
+  left: 20px;
+  z-index: 10;
+  position: absolute;
+  padding: 30px;
+  transition: 300ms;
+}
+
+#agregarAlumno:hover{
+  background-color: rgb(159, 163, 202);
+  transition: 300ms;
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-coderhouse-tp6": {
+    "angular-coderhouse-tp4": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-coderhouse-tp6",
+            "outputPath": "dist/angular-coderhouse-tp4",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,8 +25,9 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/primeflex/primeflex.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -61,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-coderhouse-tp6:build:production"
+              "browserTarget": "angular-coderhouse-tp4:build:production"
             },
             "development": {
-              "browserTarget": "angular-coderhouse-tp6:build:development"
+              "browserTarget": "angular-coderhouse-tp4:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-coderhouse-tp6:build"
+            "browserTarget": "angular-coderhouse-tp4:build"
           }
         },
         "test": {
@@ -88,8 +89,9 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "/node_modules/primeflex/primeflex.css",
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -98,6 +100,6 @@
     }
   },
   "cli": {
-    "analytics": "1d538597-56ac-4bab-a06b-3e4a7ff07cbb"
+    "analytics": "c0eec2c4-3b5c-41ea-9fed-58caf647062b"
   }
 }

@@ -1,0 +1,49 @@
+.toolbar {
+  display: flex;
+  background-color: #F6EADE;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  position: relative;
+
+  ul {
+    display: flex;
+    padding: 20px;
+  }
+
+  ul li {
+    display: flex;
+    list-style: none;
+    padding: 20px;
+  }
+
+  ul li:first-child {
+    color:rgb(87, 59, 59);
+    text-decoration: underline;
+  }
+
+  ul li:nth-child(3) {
+    color: rgb(36, 32, 32);
+    background-color:rgb(230, 65, 65);
+    font-family: 'Roboto';
+    text-transform: uppercase;
+    border: 2px solid rgb(2, 0, 0);
+    animation: mio 1s infinite ease-in-out;
+  }
+}
+
+@keyframes mio {
+  20% {
+    background-color:rgb(230, 65, 65);
+  }
+  40% {
+    background-color:rgb(87, 59, 59);
+  }
+  70%{
+    background-color:rgb(110, 62, 62);
+  }
+  100% {
+    background-color:rgb(230, 65, 65);
+  }
+}
