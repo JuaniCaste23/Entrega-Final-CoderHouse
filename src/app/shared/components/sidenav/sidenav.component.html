@@ -1,0 +1,8 @@
+<app-header [sidenav]="sidenav"></app-header>
+  <mat-sidenav class="navbar" #sidenav opened="true" mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="">Home</a>
+      <a mat-list-item routerLink="/students">Estudiantes</a>
+      <a mat-list-item routerLink="/cursos">Cursos</a>
+    </mat-nav-list>
+  </mat-sidenav>

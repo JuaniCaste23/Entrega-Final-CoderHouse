@@ -1,14 +1,13 @@
 footer {
-  background-color: #ecb986;
-  height: 100%;
-  width: 100%;
+  background-color: var(--color-primary);
+  height: 50px;
 }
 
 footer h2 {
-  display: flex;
+  text-align: center;
   font-size: 3.5rem;
-  color: #e4892f;
-  padding: 20px;
-  justify-content: center;
+  color: #eeff05;
+  padding: 26px;
+  background-color: var(--color-primary);
 }
 

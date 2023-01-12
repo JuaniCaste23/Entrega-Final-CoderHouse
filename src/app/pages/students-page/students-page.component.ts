@@ -3,6 +3,7 @@ import { AlumnoModel } from 'src/app/models/models';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentModalComponent } from 'src/app/shared/components/student-modal/student-modal.component';
 
+
 @Component({
   selector: 'app-students-page',
   templateUrl: './students-page.component.html',
@@ -22,7 +23,7 @@ export class StudentsPageComponent {
 
   ];
 
-  constructor(private readonly modalService: MatDialog){}
+  constructor(private readonly modalService: MatDialog) {}
 
   addAlumno() {
    const dialog = this.modalService.open(StudentModalComponent)

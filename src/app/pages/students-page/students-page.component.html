@@ -1,3 +1,4 @@
+<section>
 <table mat-table [dataSource]="alumnos">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef appTitulosx20> ID </th>
@@ -31,10 +32,9 @@
       </button>
     </td>
   </ng-container>
-
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
 <button id="agregarAlumno" (click)="addAlumno()" mat-flat-button color="primary">Agregar Alumno</button>
+</section>
+
