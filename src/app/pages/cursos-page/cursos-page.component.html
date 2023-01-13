@@ -1,1 +1,9 @@
-<p>cursos-page works!</p>
+
+<section class="cursos-container">
+  <button #agregarCurss mat-flat-button color="primary" (click)="agregarCurso()">Agregar</button>
+    <div class="card-container">
+      <app-curso-card *ngFor="let curso of (cursos$ | async)" [cursos]="curso" (eliminar)="eliminarCard($event)">
+      </app-curso-card>
+    </div>
+</section>
+

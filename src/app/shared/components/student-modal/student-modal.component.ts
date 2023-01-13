@@ -2,7 +2,7 @@ import { Component, Inject, NgModule } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AlumnoModel } from 'src/app/models/models';
+import { AlumnoModel } from 'src/app/models/alumnomodel';
 
 @Component({
   selector: 'app-student-modal',

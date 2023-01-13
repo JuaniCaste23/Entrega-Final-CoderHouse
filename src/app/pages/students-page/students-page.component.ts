@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlumnoModel } from 'src/app/models/models';
+import { AlumnoModel } from 'src/app/models/alumnomodel';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentModalComponent } from 'src/app/shared/components/student-modal/student-modal.component';
 

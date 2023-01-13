@@ -9,8 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-
-
+import { CursoModalComponent } from './components/curso-modal/curso-modal.component';
+import { CursoCardComponent } from './components/curso-card/curso-card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     Titulosx20Directive,
     upperCase,
     SidenavComponent,
+    CursoModalComponent,
+    CursoCardComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     FooterComponent,
     Titulosx20Directive,
     upperCase,
-    SidenavComponent
+    SidenavComponent,
+    CursoCardComponent,
+    CursoModalComponent
   ]
 })
 export class SharedModule { }

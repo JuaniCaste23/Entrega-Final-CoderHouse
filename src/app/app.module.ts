@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CursosPageComponent } from './pages/cursos-page/cursos-page.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CursosPageComponent } from './pages/cursos-page/cursos-page.component';
     StudentsPageComponent,
     HomeComponent,
     CursosPageComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

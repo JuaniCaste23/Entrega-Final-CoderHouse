@@ -1,17 +1,14 @@
 .navbar {
   float: left;
   width: 7.3%;
-  background-color: #000;
+  background-color: var(--color-primary);
   height: 200px;
   z-index: 5;
   position: absolute;
   mat-nav-list{
     height: 50px;
-  }
-  mat-sidenav{
     border-top: 4px solid #000;
-    border-right: 4px solid var(--color-primary);
-    background-color: var(--color-primary);
+    border-right: none;
   }
   a {
     font-size: 16px;
