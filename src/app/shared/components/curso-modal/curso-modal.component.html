@@ -1,1 +1,25 @@
-<p>curso-modal works!</p>
+<h1 mat-dialog-title>Agregar Curso</h1>
+<div mat-dialog-content>
+  <form class="flex flex-column" [formGroup]="dataForm">
+    <mat-form-field class="mb-2" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input [formControl]="nombreControl" matInput placeholder="Nombre">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <input [formControl]="categoriaControl" matInput placeholder="Apellido">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>URL de Imagen</mat-label>
+      <input [formControl]="imagenURLControl" matInput placeholder="Carrera">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input [formControl]="descripcionControl" matInput placeholder="Carrera">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="close()">Cancelar</button>
+  <button mat-button color="primary" [mat-dialog-close]="dataForm.value" cdkFocusInitial>Guardar</button>
+</div>

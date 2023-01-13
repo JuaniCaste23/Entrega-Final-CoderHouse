@@ -1,7 +1,7 @@
 <mat-card class="curso-card">
   <div>
     <mat-card-header>
-      <!-- <mat-card-title>{{cursos.nombre}}</mat-card-title> -->
+      <mat-card-title>{{cursos.nombre}}</mat-card-title>
       <mat-card-subtitle>{{cursos.categoria}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image [src]="cursos.imagenURL" [alt]="cursos.nombre">
@@ -9,7 +9,9 @@
       <p>{{cursos.descripcion}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Editar</button>
+      <button mat-icon-button (click)="editarCard()">
+        <mat-icon>edit</mat-icon>
+      </button>
       <button mat-icon-button (click)="eliminarCard()">
         <mat-icon>delete</mat-icon>
       </button>

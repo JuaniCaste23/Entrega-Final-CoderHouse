@@ -9,11 +9,16 @@ import { CursoModel } from 'src/app/models/cursosmodel';
 export class CursoCardComponent{
   @Input() cursos!: CursoModel;
   @Output() eliminar = new EventEmitter<CursoModel>();
+  @Output() editar = new EventEmitter<CursoModel>();
 
   constructor() { }
 
   eliminarCard() {
     this.eliminar.emit(this.cursos);
+  }
+
+  editarCard() {
+    this.editar.emit(this.cursos);
   }
 
 }
