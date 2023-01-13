@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, take } from 'rxjs';
 import { CursoModel } from '../models/cursosmodel';
-import { CursoModalComponent } from '../shared/components/curso-modal/curso-modal.component';
-import { MatDialog } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +11,7 @@ export class CursosService {
   public cursos$: Observable<CursoModel[]>;
   private cursos = new BehaviorSubject<CursoModel[]>([]);
 
-  constructor(private readonly modalService: MatDialog) {
+  constructor() {
     this.cursos$ = this.cursos.asObservable();
     this.getCursos().subscribe(curso => {
       this.cursos.next(curso);
@@ -25,40 +23,33 @@ export class CursosService {
     this.cursos.next(newLista);
   }
 
-  agregarCurso(curso: CursoModel) {
-    const newLista = this.cursos.getValue();
-    const dialog = this.modalService.open(CursoModalComponent)
-
-    dialog.afterClosed().subscribe((value) => {
-      if ( value ) {
-        newLista.push(curso);
-        this.cursos.next(newLista);
-      }
+  agregarCurso(nuevoCurso: Omit<CursoModel, 'id'>): void {
+    this.cursos.pipe(take(1)).subscribe((cursos) => {
+      const lastId = cursos[cursos.length - 1]?.id || 0;
+      this.cursos.next([
+        ...cursos,
+        new CursoModel(lastId + 1, nuevoCurso.nombre, nuevoCurso.categoria, nuevoCurso.imagenURL, nuevoCurso.descripcion)
+      ])
     })
   }
 
-  editarCurso(id:number, data: Partial<CursoModel>) {
-    const dialog = this.modalService.open(CursoModalComponent)
-    dialog.afterClosed().subscribe((value) => {
-      if ( value ) {
-        this.cursos.pipe(take(1)).subscribe((cursos) => {
-        this.cursos.next(
-          cursos.map(
-            (curs) => curs.id === cursos.id
-              ? new CursoModel(
-                curs.id,
-                data.nombre || curs.nombre,
-                data.categoria || curs.categoria,
-                data.imagenURL || curs.imagenURL,
-                data.descripcion || curs.descripcion
-              )
-              : curs
-          )
+  editarCurso(id: number, data: Partial<CursoModel>): void {
+    this.cursos.pipe(take(1)).subscribe((cursos) => {
+      this.cursos.next(
+        cursos.map(
+          (curs) => curs.id === id
+            ? new CursoModel(
+              curs.id,
+              data.nombre || curs.nombre,
+              data.categoria || curs.categoria,
+              data.imagenURL || curs.imagenURL,
+              data.descripcion || curs.descripcion
+            )
+            : curs
         )
-      })
-    }
-  })
-}
+      )
+    })
+  }
 
   getCursos(): Observable<CursoModel[]> {
     return of([

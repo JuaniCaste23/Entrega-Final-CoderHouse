@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CursoModel } from 'src/app/models/cursosmodel';
 import { CursosService } from 'src/app/services/service-cursos.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CursoModalComponent } from 'src/app/shared/components/curso-modal/curso-modal.component';
 
 @Component({
   selector: 'app-cursos-page',
@@ -13,7 +15,9 @@ export class CursosPageComponent implements OnInit {
 
   public cursos$!: Observable<CursoModel[]>;
 
-  constructor(private CursosService: CursosService) { }
+  constructor(private CursosService: CursosService,private readonly dialogService: MatDialog) {
+    this.cursos$ = this.CursosService.cursos$
+   }
 
   ngOnInit(): void {
     this.cursos$ = this.CursosService.cursos$;
@@ -24,16 +28,23 @@ export class CursosPageComponent implements OnInit {
     this.CursosService.eliminarCurso(curso);
   }
 
-  editarCard(curso: CursoModel) {
-    this.CursosService.editarCurso(curso);
+  editarCard(element: CursoModel) {
+    const dialog = this.dialogService.open(CursoModalComponent, {
+      data: element
+    })
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.CursosService.editarCurso(element.id, data);
+      }
+    })
   }
 
-  agregarCurso() {
-    this.CursosService.agregarCurso(
-      {id:1,nombre: 'Javascript', categoria: 'Programacion', imagenURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png', descripcion: 'El lenguaje mas famoso de programación WEB'},
-    );
+    agregarCurso() {
+      const dialog = this.dialogService.open(CursoModalComponent)
+      dialog.afterClosed().subscribe((data) => {
+        if (data) {
+          this.CursosService.agregarCurso({ nombre: data.nombre, categoria: data.categoria, imagenURL: data.imagenURL, descripcion : data.descripcion });
+        }
+      })
+    }
   }
-
-
-
-}
