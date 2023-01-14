@@ -39,12 +39,12 @@ export class CursosPageComponent implements OnInit {
     })
   }
 
-    agregarCurso() {
-      const dialog = this.dialogService.open(CursoModalComponent)
-      dialog.afterClosed().subscribe((data) => {
-        if (data) {
-          this.CursosService.agregarCurso({ nombre: data.nombre, categoria: data.categoria, imagenURL: data.imagenURL, descripcion : data.descripcion });
-        }
-      })
-    }
+  agregarCurso() {
+    const dialog = this.dialogService.open(CursoModalComponent)
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.CursosService.agregarCurso({ nombre: data.nombre, categoria: data.categoria, imagenURL: data.imagenURL, descripcion : data.descripcion });
+      }
+    })
+  }
   }
