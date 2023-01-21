@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { StudentsPageComponent } from './students-page/students-page.component';
 import { CursosPageComponent } from './cursos-page/cursos-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     CommonModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   exports:[
     NotFoundComponent,
