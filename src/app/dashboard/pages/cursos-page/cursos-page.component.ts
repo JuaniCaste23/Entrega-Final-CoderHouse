@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { CursoModel } from 'src/app/models/cursosmodel';
 import { CursosService } from 'src/app/services/service-cursos.service';
 import { MatDialog } from '@angular/material/dialog';
-import { CursoModalComponent } from 'src/app/shared/components/curso-modal/curso-modal.component';
+import { CursoModalComponent } from 'src/app/dashboard/components/curso-modal/curso-modal.component';
 
 @Component({
   selector: 'app-cursos-page',

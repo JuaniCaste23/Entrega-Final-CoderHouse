@@ -39,12 +39,15 @@ mat-toolbar {
   mat-icon{
     transform: scale(1.5);
   }
-  button{
+  .hambur{
     transition: 200ms;
   }
-  button:hover{
+  .hambur:hover{
     transform: rotate(90deg);
     transition: 200ms;
+  }
+  .closed{
+    left: 70px;
   }
 }
 

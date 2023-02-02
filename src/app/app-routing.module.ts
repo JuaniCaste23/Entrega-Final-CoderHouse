@@ -1,37 +1,42 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from "@angular/router";
-import { HomeComponent } from './pages/home/home.component';
-import { StudentsPageComponent } from './pages/students-page/students-page.component';
-import { CursosPageComponent } from './pages/cursos-page/cursos-page.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CommonModule } from '@angular/common';
+import { Routes , RouterModule} from '@angular/router';
+import { NotFoundComponent } from 'src/app/dashboard/pages/not-found/not-found.component';
+import { GuardsGuard } from './auth/guards/guards.guard';
 
-const routes: Routes = [
+const routes: Routes= [
   {
     path:'',
-    component:HomeComponent
-  },
-  {
-    path:'students',
-    component: StudentsPageComponent
-  },
-  {
-    path:'cursos',
-    component: CursosPageComponent
-  },
-  {
-    path:'**',
-    component: NotFoundComponent
-  }
+    pathMatch: 'full',
+    redirectTo:'/auth/login',
+},
+{
+  path:'auth',
+  loadChildren: ()=> import('./auth/auth.module').then( m=> m.AuthModule )
+},
+{
+  path:'dashboard',
+  loadChildren: ()=> import('./dashboard/dashboard.module').then( m=> m.DashboardModule ),
+  canActivate: [GuardsGuard],
+},
+{
+  path:'404',
+  component:NotFoundComponent,
+},
+{
+  path:'**',
+  redirectTo:'404',
+},
 
-]
+
+
+];
 
 @NgModule({
-
-  declarations:[],
-  imports:[
-    RouterModule.forRoot(routes)
+  declarations: [],
+  imports: [
+    CommonModule, RouterModule.forRoot(routes)
   ],
-  exports:[RouterModule],
+  exports:[RouterModule]
 })
-
-export class AppRoutingModule {}
+export class AppRoutingModule { }

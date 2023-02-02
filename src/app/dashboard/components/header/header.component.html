@@ -1,10 +1,11 @@
 <mat-toolbar>
-  <button mat-icon-button (click)="sidenav.toggle();">
+  <button class="hambur" mat-icon-button (click)="sidenav.toggle();">
    <mat-icon>menu</mat-icon>
  </button>
+<button class="closed" (click)="authService.logOut()" color="warn" mat-flat-button>Cerrar sesión</button>
  <nav class="toolbar">
   <ul>
-    <li>SEGUNDA ENTREGA TP FINAL</li>
+    <li>TERCERA ENTREGA TP FINAL</li>
     <li class="example-spacer"></li>
     <li>CODERHOUSE</li>
   </ul>

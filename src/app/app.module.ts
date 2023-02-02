@@ -3,11 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { PagesModule } from './pages/pages.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,11 +15,9 @@ import { PagesModule } from './pages/pages.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    ReactiveFormsModule,
     SharedModule,
     AppRoutingModule,
-    PagesModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

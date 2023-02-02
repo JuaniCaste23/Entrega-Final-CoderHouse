@@ -1,0 +1,26 @@
+<main class="main-container">
+  <mat-card class="card-container">
+    <mat-card-header class="card-container__header">
+      <mat-card-title class="card-container__title">Iniciar sesión</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="card-container__form" [formGroup]="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Ingrese Email</mat-label>
+          <input formControlName="email" type="email" matInput placeholder="Placeholder">
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Ingrese Contraseña</mat-label>
+          <input formControlName="password" type="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Placeholder">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions class="card-container-actions">
+      <button [disabled]="cargando" mat-flat-button color="primary" (click)="login()">{{ cargando ? 'Iniciando sesión' : 'Ingresar' }}</button>
+    </mat-card-actions>
+  </mat-card>
+</main>
