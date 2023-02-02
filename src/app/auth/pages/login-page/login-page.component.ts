@@ -12,10 +12,12 @@ import { Subject } from 'rxjs';
 export class LoginPageComponent implements OnDestroy {
   public hide = true;
   public cargando = false
+
   public form = new FormGroup({
     email: new FormControl('eve.holt@reqres.in', [Validators.required]),
     password: new FormControl('cityslicka', [Validators.required]),
   })
+
   private destroyed$ = new Subject();
 
   constructor(
@@ -40,5 +42,8 @@ export class LoginPageComponent implements OnDestroy {
         this.router.navigate(['dashboard', 'home'])
       }
     })
+
   }
+
+
 }
